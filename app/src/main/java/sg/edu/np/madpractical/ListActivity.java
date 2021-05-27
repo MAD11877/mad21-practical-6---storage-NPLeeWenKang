@@ -44,7 +44,7 @@ public class ListActivity extends AppCompatActivity {
 
 
 
-        RecyclerView recyclerView = findViewById(R.id.recyclerView);
+        RecyclerView recyclerView = findViewById(R.id.rv);
         UsersAdapter mAdapter =
                 new UsersAdapter(this,uList);
         Log.d("mydatabase", ""+uList.get(0).isFollowed());

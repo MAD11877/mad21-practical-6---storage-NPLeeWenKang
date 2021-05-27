@@ -59,7 +59,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/profileTitle" />
 
             <Button
-                android:id="@+id/followBtn"
+                android:id="@+id/btnFollow"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
@@ -74,9 +74,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Message"
-                app:layout_constraintLeft_toRightOf="@id/followBtn"
+                app:layout_constraintLeft_toRightOf="@id/btnFollow"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/followBtn" />
+                app:layout_constraintTop_toTopOf="@+id/btnFollow" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
