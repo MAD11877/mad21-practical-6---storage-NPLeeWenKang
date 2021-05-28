@@ -2,7 +2,6 @@ package sg.edu.np.madpractical;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.DefaultItemAnimator;
-import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -11,19 +10,13 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.os.CountDownTimer;
 import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.Random;
 
 public class ListActivity extends AppCompatActivity {
-    public static ArrayList<User> uList = new ArrayList<User>();
+    public static ArrayList<User> userList = new ArrayList<User>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,16 +31,16 @@ public class ListActivity extends AppCompatActivity {
 //                alert.show();
 //            }
 //        });
-        UserDBHandler userDB = new UserDBHandler(this, null,null,1);
-        uList = userDB.getUsers();
-        Log.d("mydatabase", ""+uList.get(0).isFollowed());
+        DBHandler userDB = new DBHandler(this, null,null,1);
+        userList = userDB.getUsers();
+        Log.d("mydatabase", ""+userList.get(0).isFollowed());
 
 
 
         RecyclerView recyclerView = findViewById(R.id.rv);
         UsersAdapter mAdapter =
-                new UsersAdapter(this,uList);
-        Log.d("mydatabase", ""+uList.get(0).isFollowed());
+                new UsersAdapter(this,userList);
+        Log.d("mydatabase", ""+userList.get(0).isFollowed());
         LinearLayoutManager mLayoutManager =
                 new LinearLayoutManager(this);
 
@@ -88,7 +81,7 @@ public class ListActivity extends AppCompatActivity {
         if (preferences.contains("position")){
             Log.d("mydatabase", "pref");
             int position = preferences.getInt("position",0);
-            uList.get(position).setFollowed(!uList.get(position).isFollowed());
+            userList.get(position).setFollowed(!userList.get(position).isFollowed());
 
             SharedPreferences.Editor editor = preferences.edit();
 

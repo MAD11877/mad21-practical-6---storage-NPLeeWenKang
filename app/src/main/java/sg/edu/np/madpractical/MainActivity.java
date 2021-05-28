@@ -3,20 +3,14 @@ package sg.edu.np.madpractical;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 
-import android.app.ActionBar;
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.os.CountDownTimer;
-import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import sg.edu.np.madpractical.R;
 
 public class MainActivity extends AppCompatActivity {
     private int position;
@@ -34,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
         TextView profileTitle = (TextView) findViewById(R.id.profileTitle);
         TextView profileDescription = (TextView) findViewById(R.id.description);
         Button followBtn = (Button) findViewById(R.id.btnFollow);
-        UserDBHandler userDB = new UserDBHandler(this, null,null,1);
+        DBHandler userDB = new DBHandler(this, null,null,1);
 
         if (bundle != null){
             user = bundle.getParcelable("user");
@@ -79,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onPause( ) {
         super.onPause();
         Log.i("Debug","onPaused");
-        if (ListActivity.uList.get(position).isFollowed() != user.isFollowed()){
+        if (ListActivity.userList.get(position).isFollowed() != user.isFollowed()){
             SharedPreferences preference = getSharedPreferences("user", MODE_PRIVATE);
             SharedPreferences.Editor editor =  preference.edit();
             editor.putInt("position",position);
