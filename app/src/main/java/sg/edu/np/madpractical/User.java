@@ -16,10 +16,10 @@ public class User implements Parcelable {
         this.followed = followed;
     }
 
-    private String name;
-    private String description;
-    private int id;
-    private boolean followed;
+    public String name;
+    public String description;
+    public int id;
+    public boolean followed;
 
     public User() {
 
