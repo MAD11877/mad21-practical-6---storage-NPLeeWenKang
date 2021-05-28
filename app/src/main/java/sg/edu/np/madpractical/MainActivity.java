@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
 
         if (bundle != null){
             user = bundle.getParcelable("user");
-            if (user.getName() == null){
+            if (user == null){
                 user = ListActivity.userList.get(position);
             }
             profileTitle.setText(user.getName());
