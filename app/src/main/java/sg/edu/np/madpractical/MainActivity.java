@@ -32,9 +32,13 @@ public class MainActivity extends AppCompatActivity {
 
         if (bundle != null){
             user = bundle.getParcelable("user");
+            if (user.getName() == null){
+                user = ListActivity.userList.get(position);
+            }
             profileTitle.setText(user.getName());
             profileDescription.setText(user.getDescription());
             followBtn.setText(user.isFollowed()? "Unfollow" : "Follow");
+
         } else {
             user = new User("Null","Null",0,false);
         }
