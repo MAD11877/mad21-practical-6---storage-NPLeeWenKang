@@ -22,15 +22,6 @@ public class ListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list);
 
-//        ImageView roundIcon = (ImageView) findViewById(R.id.roundIcon);
-
-//        roundIcon.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                AlertDialog alert = alertBuilder().create();
-//                alert.show();
-//            }
-//        });
         DBHandler userDB = new DBHandler(this, null,null,1);
 
         if (!userDB.tableExists()){
@@ -48,14 +39,10 @@ public class ListActivity extends AppCompatActivity {
         }
 
         userList = userDB.getUsers();
-        Log.d("mydatabase", ""+userList.get(0).isFollowed());
-
-
 
         RecyclerView recyclerView = findViewById(R.id.rv);
         UsersAdapter mAdapter =
                 new UsersAdapter(this,userList);
-        Log.d("mydatabase", ""+userList.get(0).isFollowed());
         LinearLayoutManager mLayoutManager =
                 new LinearLayoutManager(this);
 
