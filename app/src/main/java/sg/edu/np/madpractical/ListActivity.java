@@ -32,6 +32,21 @@ public class ListActivity extends AppCompatActivity {
 //            }
 //        });
         DBHandler userDB = new DBHandler(this, null,null,1);
+
+        if (!userDB.tableExists()){
+            for (int i = 0; i< 20; i++){
+
+                int userInt = new Random().nextInt(1000000);
+                int descriptionInt = new Random().nextInt(1000000);
+                boolean followed = new Random().nextBoolean();
+                User u = new User();
+                u.setName("Name"+userInt);
+                u.setDescription(""+descriptionInt);
+                u.setFollowed(followed);
+                userDB.addUser(u);
+            }
+        }
+
         userList = userDB.getUsers();
         Log.d("mydatabase", ""+userList.get(0).isFollowed());
 

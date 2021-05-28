@@ -20,8 +20,7 @@ public class MainActivity extends AppCompatActivity {
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Log.i("Debug","OnCreate");
-
+        Log.d("MyDebug","OnCreateMain");
         Intent receivingEnd = getIntent();
         Bundle bundle = receivingEnd.getExtras();;
         position = receivingEnd.getIntExtra("position",0);

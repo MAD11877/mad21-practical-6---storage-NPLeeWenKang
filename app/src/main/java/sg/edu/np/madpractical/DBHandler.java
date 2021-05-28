@@ -22,38 +22,10 @@ public class DBHandler extends SQLiteOpenHelper {
     public DBHandler(Context context, String name, SQLiteDatabase.CursorFactory factory, int version)
     {
         super(context, DATABASE_NAME, factory, DATABASE_VERSION);
-
-        if (!this.tableExists()){
-            for (int i = 0; i< 20; i++){
-
-                int userInt = new Random().nextInt(1000000);
-                int descriptionInt = new Random().nextInt(1000000);
-                boolean followed = new Random().nextBoolean();
-                User u = new User();
-                u.setName("Name"+userInt);
-                u.setDescription(""+descriptionInt);
-                u.setFollowed(followed);
-                this.addUser(u);
-            }
-        }
     }
     public DBHandler(Context context)
     {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
-
-        if (!this.tableExists()){
-            for (int i = 0; i< 20; i++){
-
-                int userInt = new Random().nextInt(1000000);
-                int descriptionInt = new Random().nextInt(1000000);
-                boolean followed = new Random().nextBoolean();
-                User u = new User();
-                u.setName("Name"+userInt);
-                u.setDescription(""+descriptionInt);
-                u.setFollowed(followed);
-                this.addUser(u);
-            }
-        }
     }
 
     @Override
