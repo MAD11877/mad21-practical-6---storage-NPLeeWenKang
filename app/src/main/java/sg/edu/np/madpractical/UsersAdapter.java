@@ -59,7 +59,7 @@ public class UsersAdapter extends RecyclerView.Adapter<UserViewHolder>{
                     public void onClick(DialogInterface dialog, int id){
                         Intent changePage = new Intent(context, MainActivity.class);
 
-                        changePage.putExtra("position", position);
+                        changePage.putExtra("id", position);
                         context.startActivity(changePage);
                     }
                 });

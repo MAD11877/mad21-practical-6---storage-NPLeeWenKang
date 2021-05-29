@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         Intent receivingEnd = getIntent();
-        position = receivingEnd.getIntExtra("position",0);
+        position = receivingEnd.getIntExtra("id",0);
 
         TextView profileTitle = findViewById(R.id.txtName);
         TextView profileDescription = findViewById(R.id.description);
