@@ -26,7 +26,6 @@ public class ListActivity extends AppCompatActivity {
 
         if (!userDB.tableExists()){
             for (int i = 0; i< 20; i++){
-
                 int userInt = new Random().nextInt(1000000);
                 int descriptionInt = new Random().nextInt(1000000);
                 boolean followed = new Random().nextBoolean();

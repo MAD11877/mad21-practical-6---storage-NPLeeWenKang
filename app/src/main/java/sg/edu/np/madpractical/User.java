@@ -4,7 +4,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.util.Log;
 
-public class User implements Parcelable {
+public class User{
     public User(String str, String str2,int num,boolean bool){
         name = str;
         description = str2;
@@ -66,38 +66,4 @@ public class User implements Parcelable {
                 ", followed=" + followed +
                 '}';
     }
-
-    // Gets parcel and converts them from string to attributes in a model
-    public User(Parcel in){
-        String[] data = new String[4];
-
-        in.readStringArray(data);
-        // the order needs to be the same as in writeToParcel() method
-        // Converts from string
-        this.name = data[0];
-        this.description = data[1];
-        this.id = Integer.parseInt(data[2]);
-        this.followed = Boolean.parseBoolean(data[3]);
-        Log.d("mydatabase", "data[3]"+data[3]);
-        Log.d("mydatabase", "this.followed"+this.followed);
-    }
-
-    @Override
-    public int describeContents(){
-        return 0;
-    }
-
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        dest.writeStringArray(new String[] {this.name, this.description, ""+this.id, ""+this.followed});
-    }
-    public static final Parcelable.Creator CREATOR = new Parcelable.Creator() {
-        public User createFromParcel(Parcel in) {
-            return new User(in);
-        }
-
-        public User[] newArray(int size) {
-            return new User[size];
-        }
-    };
 }

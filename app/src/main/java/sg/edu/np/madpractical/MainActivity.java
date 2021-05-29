@@ -20,28 +20,14 @@ public class MainActivity extends AppCompatActivity {
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Log.d("MyDebug",""+ListActivity.userList.get(position).getName());
+
         Intent receivingEnd = getIntent();
-        Bundle bundle = receivingEnd.getExtras();;
         position = receivingEnd.getIntExtra("position",0);
 
         TextView profileTitle = (TextView) findViewById(R.id.txtName);
         TextView profileDescription = (TextView) findViewById(R.id.description);
         Button followBtn = (Button) findViewById(R.id.btnFollow);
         DBHandler userDB = new DBHandler(this, null,null,1);
-
-//        if (bundle != null){
-//            user = bundle.getParcelable("user");
-//            if (user == null){
-//                user = ListActivity.userList.get(position);
-//            }
-//            profileTitle.setText(user.getName());
-//            profileDescription.setText(user.getDescription());
-//            followBtn.setText(user.isFollowed()? "Unfollow" : "Follow");
-//
-//        } else {
-//            user = new User("Null","Null",0,false);
-//        }
 
         user = ListActivity.userList.get(position);
         profileTitle.setText(user.getName());

@@ -59,9 +59,7 @@ public class UsersAdapter extends RecyclerView.Adapter<UserViewHolder>{
                 alert.setPositiveButton("View", new DialogInterface.OnClickListener(){
                     public void onClick(DialogInterface dialog, int id){
                         Intent changePage = new Intent(context, MainActivity.class);
-                        Bundle bundle = new Bundle();
-                        bundle.putParcelable("user", (Parcelable) u);
-                        changePage.putExtras(bundle);
+
                         changePage.putExtra("position", position);
                         context.startActivity(changePage);
                     }
