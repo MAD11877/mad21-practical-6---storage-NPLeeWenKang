@@ -30,9 +30,10 @@ public class MainActivity extends AppCompatActivity {
         DBHandler userDB = new DBHandler(this, null,null,1);
 
         user = ListActivity.userList.get(position);
-        profileTitle.setText(user.getName());
-        profileDescription.setText(user.getDescription());
-        followBtn.setText(user.isFollowed()? "Unfollow" : "Follow");
+
+        profileTitle.setText(user.name);
+        profileDescription.setText(user.description);
+        followBtn.setText(user.followed? "Unfollow" : "Follow");
 
         followBtn.setOnClickListener(new View.OnClickListener() {
             @Override
