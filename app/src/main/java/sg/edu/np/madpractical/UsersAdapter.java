@@ -23,7 +23,6 @@ public class UsersAdapter extends RecyclerView.Adapter<UserViewHolder>{
     public UsersAdapter(Context c, ArrayList<User> d){
         context = c;
         data = d;
-        Log.d("mydatabase", "binderadapt"+data.get(0).isFollowed());
     }
 
 
@@ -43,7 +42,7 @@ public class UsersAdapter extends RecyclerView.Adapter<UserViewHolder>{
     @Override
     public void onBindViewHolder(@NonNull UserViewHolder holder, int position) {
         User u = data.get(position);
-        Log.d("mydatabase", "binderholder"+data.get(0).isFollowed());
+
         holder.txt.setText(u.getName());
         holder.txt2.setText(""+u.getDescription());
 

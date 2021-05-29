@@ -24,9 +24,9 @@ public class MainActivity extends AppCompatActivity {
         Intent receivingEnd = getIntent();
         position = receivingEnd.getIntExtra("position",0);
 
-        TextView profileTitle = (TextView) findViewById(R.id.txtName);
-        TextView profileDescription = (TextView) findViewById(R.id.description);
-        Button followBtn = (Button) findViewById(R.id.btnFollow);
+        TextView profileTitle = findViewById(R.id.txtName);
+        TextView profileDescription = findViewById(R.id.description);
+        Button followBtn = findViewById(R.id.btnFollow);
         DBHandler userDB = new DBHandler(this, null,null,1);
 
         user = ListActivity.userList.get(position);

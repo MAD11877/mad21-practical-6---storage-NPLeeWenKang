@@ -80,7 +80,6 @@ public class ListActivity extends AppCompatActivity {
         super.onResume();
         SharedPreferences preferences = getSharedPreferences("user", MODE_PRIVATE);
         if (preferences.contains("position")){
-            Log.d("mydatabase", "pref");
             int position = preferences.getInt("position",0);
             userList.get(position).setFollowed(!userList.get(position).isFollowed());
 
